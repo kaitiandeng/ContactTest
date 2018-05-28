@@ -30,6 +30,15 @@
     <ClInclude Include="Resource.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="CAdd.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CSearch.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Edit.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ContactTest.cpp">
@@ -39,6 +48,15 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="stdafx.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CAdd.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="CSearch.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Edit.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
