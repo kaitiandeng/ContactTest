@@ -9,6 +9,7 @@
 #include <sstream>
 
 #define _F_CONTACTSINFO "./ConInfo.txt"
+#define _F_TMPFILE "./tmpFile.txt"
 
 using namespace std;
 
@@ -33,7 +34,7 @@ public:
 	void AddInfo(int id, string name, string tel, string email);
 
 	//编辑联系人信息
-	void EditInfo(int id, CString name, CString tel, CString email);
+	void EditInfo(int id, string name, string tel, string email);
 
 	//删除联系人
 	void DelInfo(int id);
