@@ -30,7 +30,7 @@
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
-    <CharacterSet>Unicode</CharacterSet>
+    <CharacterSet>MultiByte</CharacterSet>
     <UseOfMfc>Dynamic</UseOfMfc>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
@@ -184,6 +184,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="CAdd.h" />
+    <ClInclude Include="CContactsInfo.h" />
     <ClInclude Include="CEDIT.h" />
     <ClInclude Include="ContactTest.h" />
     <ClInclude Include="ContactTestDlg.h" />
@@ -194,6 +195,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CAdd.cpp" />
+    <ClCompile Include="CContactsInfo.cpp" />
     <ClCompile Include="CEDIT.cpp" />
     <ClCompile Include="ContactTest.cpp" />
     <ClCompile Include="ContactTestDlg.cpp" />
