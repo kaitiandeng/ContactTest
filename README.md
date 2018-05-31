@@ -8,7 +8,7 @@ __git pull origin master --allow-unrelated-histories__
 ### 主要功能
 
 >
-### >添加联系人，编辑联系人信息，删除联系人，搜索联系人
+>添加联系人，编辑联系人信息，删除联系人，搜索联系人
 >
 
 ### 演示视频
@@ -17,7 +17,7 @@ __git pull origin master --allow-unrelated-histories__
 
 
 >
-### > 待修改的部分
+> 待修改的部分
 >
 
 #### +UI界面
