@@ -4,16 +4,23 @@ rejected Updates were rejected because the remote contains work that you do not 
 
 __git pull origin master --allow-unrelated-histories__
 
+
 ### 主要功能
 
->添加联系人，编辑联系人信息，删除联系人，搜索联系人
+>
+### >添加联系人，编辑联系人信息，删除联系人，搜索联系人
+>
 
 ### 演示视频
 
 [传送门](https://github.com/kaitiandeng/ContactTest/blob/master/20180531_191021.mp4)
 
-### 动态图 
 
-* 不是很清晰
+>
+### > 待修改的部分
+>
 
+#### +UI界面
+#### +列表双击编辑功能功能
+#### +多选删除
 
