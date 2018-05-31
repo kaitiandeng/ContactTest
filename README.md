@@ -5,6 +5,10 @@ rejected Updates were rejected because the remote contains work that you do not 
 
 __git pull origin master --allow-unrelated-histories__
 
+### 演示视频
+
+[传送门](https://github.com/kaitiandeng/ContactTest/blob/master/20180531_191021.mp4)
+
 
 ### 主要功能
 
@@ -12,11 +16,6 @@ __git pull origin master --allow-unrelated-histories__
 + 编辑联系人信息
 + 删除联系人 
 + 搜索联系人
-
-
-### 演示视频
-
-[传送门](https://github.com/kaitiandeng/ContactTest/blob/master/20180531_191021.mp4)
 
 
 ### 待修改的部分
