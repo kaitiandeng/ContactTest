@@ -14,6 +14,6 @@ __git pull origin master --allow-unrelated-histories__
 
 ### 动态图 
 
-*不是很清晰*
+* 不是很清晰
 
 
