@@ -39,9 +39,4 @@ public:
 	//删除联系人
 	void DelInfo(int id);
 
-	//存储联系人信息
-	vector<ContactsInfo> vc;
-
-	//记录联系人个数
-	int num;
 };

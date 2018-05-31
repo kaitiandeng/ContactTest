@@ -3,14 +3,6 @@
 #include "ContactTestDlg.h"
 
 
-ConInfo::ConInfo()
-{
-}
-
-ConInfo::~ConInfo()
-{
-}
-
 //读取联系人信息
 void ConInfo::ReadInfo()
 {
@@ -41,6 +33,7 @@ void ConInfo::ReadInfo()
 	}
 
 	ciFile.close();
+	
 }
 
 //添加联系人信息
@@ -64,17 +57,77 @@ void ConInfo::AddInfo(int id, string name, string tel, string email)
 //编辑联系人信息
 void ConInfo::EditInfo(int id, string name, string tel, string email)
 {
-	//从被编辑行开始复制到另外一个文件中
-	ifstream ciFile(_F_CONTACTSINFO);
-	ofstream tmpFile(_F_TMPFILE,ios_base::trunc);
-
 	int count = 0;
 	string line;
+	
+	if (id != 0)
+	{
+		//1、保存编辑行之前的内容
+		ifstream ifFile(_F_CONTACTSINFO);
+		ofstream ofFile(_F_TMPFILE, ios_base::trunc);
+
+		while (!ifFile.eof())
+		{
+			getline(ifFile, line);
+			if (count < id)
+			{
+				ofFile << line << endl;
+			}
+			else if (count == id)
+			{
+				break;
+			}
+			if (ifFile.peek() == EOF)
+			{
+				break;
+			}
+
+
+			ifFile.close();
+			ofFile.close();
+
+		}
+	}
+
+	//2、编辑行处写入
+	if (id == 0)
+	{
+		ofstream oFile(_F_TMPFILE, ios_base::trunc);
+		oFile << setiosflags(ios_base::left)
+			<< setw(5) << id << " "
+			<< resetiosflags(ios_base::left)
+			<< setw(15) << name << " "
+			<< resetiosflags(ios_base::left)
+			<< setw(15) << tel << " "
+			<< resetiosflags(ios_base::left)
+			<< setw(25) << email << endl;
+
+		oFile.close();
+	}
+	else
+	{
+		ofstream oFile(_F_TMPFILE, ios_base::app);
+
+		oFile << setiosflags(ios_base::left)
+			<< setw(5) << id << " "
+			<< resetiosflags(ios_base::left)
+			<< setw(15) << name << " "
+			<< resetiosflags(ios_base::left)
+			<< setw(15) << tel << " "
+			<< resetiosflags(ios_base::left)
+			<< setw(25) << email << endl;
+
+		oFile.close();
+	}
+
+	//3、编辑行后复制到另外一个文件中
+	ifstream ciFile(_F_CONTACTSINFO);
+	ofstream tmpFile(_F_TMPFILE, ios_base::app);
 
 	while (!ciFile.eof())
 	{
-		getline(ciFile,line);
-		if (count >= id)
+		getline(ciFile, line);
+		if (count > id)
 		{
 			tmpFile << line << endl;
 		}
@@ -88,22 +141,8 @@ void ConInfo::EditInfo(int id, string name, string tel, string email)
 	ciFile.close();
 	tmpFile.close();
 
-	//编辑行写入_F_CONTACTSINFO文件中
-	ofstream oFile(_F_CONTACTSINFO,ios_base::app);
-
-	oFile << setiosflags(ios_base::left)
-		  << setw(5) << id << " "
-		  << resetiosflags(ios_base::left)
-		  << setw(15) << name << " "
-		  << resetiosflags(ios_base::left)
-		  << setw(15) << tel << " "
-		  << resetiosflags(ios_base::left)
-		  << setw(25) << email << endl;
-
-	oFile.close();
-
-	//将被编辑行后面的数据复制到_F_CONTACTSINFO中来，并删除要被编辑行
-	ofstream ciFile2(_F_CONTACTSINFO,ios_base::app);
+	//4、将更改过的内容复制到主文件中去
+	ofstream ciFile2(_F_CONTACTSINFO,ios_base::trunc);
 	ifstream tmpFile2(_F_TMPFILE);
 
 	count = 0;
@@ -111,10 +150,9 @@ void ConInfo::EditInfo(int id, string name, string tel, string email)
 	while (!tmpFile2.eof())
 	{
 		getline(tmpFile2, line);
-		if (count != 0)
-		{
-			ciFile2 << line << endl;
-		}
+
+		ciFile2 << line << endl;
+	
 	
 		if (tmpFile2.peek() == EOF)
 		{
@@ -125,24 +163,25 @@ void ConInfo::EditInfo(int id, string name, string tel, string email)
 
 	ciFile2.close();
 	tmpFile2.close();
+
+	DeleteFile(_F_TMPFILE);
 }
 
 //删除联系人
 void ConInfo::DelInfo(int id)
 {
-	
+	int count = 0;
+	string info;
+
 	ifstream ciFile(_F_CONTACTSINFO);
 	ofstream tmpFile(_F_TMPFILE,ios_base::trunc);
 
-	string line;
-	int count = 0;
-
 	while (!ciFile.eof())
 	{
-		getline(ciFile,line);
-		if (id != count)
+		getline(ciFile,info);
+		if (count != 0)
 		{
-			tmpFile << line << endl;
+			tmpFile << info << endl;
 		}
 		if (ciFile.peek() == EOF)
 		{
@@ -154,20 +193,27 @@ void ConInfo::DelInfo(int id)
 	ciFile.close();
 	tmpFile.close();
 
-	ofstream ciFile2(_F_CONTACTSINFO,ios_base::trunc);
-	fstream tmpFile2(_F_TMPFILE);
+	ofstream ofs(_F_CONTACTSINFO,ios_base::trunc);
+	ifstream ifs(_F_TMPFILE);
 
-	while (!tmpFile2.eof())
+	while (!ifs.eof())
 	{
-		getline(tmpFile2,line);
-		ciFile2 << line << endl;
-		if (tmpFile2.peek() == EOF)
+		string info2;
+		getline(ifs,info2);
+		ofs << info2 << endl;
+		if (ifs.peek() == EOF)
 		{
 			break;
 		}
 	}
 
-	ciFile2.close();
-	tmpFile2.close();
 	DeleteFile(_F_TMPFILE);
+}
+
+ConInfo::ConInfo()
+{
+}
+
+ConInfo::~ConInfo()
+{
 }
