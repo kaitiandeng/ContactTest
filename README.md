@@ -21,6 +21,6 @@ __git pull origin master --allow-unrelated-histories__
 ### 待修改的部分
 
  + UI界面
- + 列表双击编辑功能功能
+ + 列表双击编辑功能
  + 多选删除
 
