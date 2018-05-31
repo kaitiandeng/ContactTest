@@ -82,7 +82,6 @@ void ConInfo::EditInfo(int id, string name, string tel, string email)
 				break;
 			}
 
-
 			ifFile.close();
 			ofFile.close();
 
@@ -174,12 +173,12 @@ void ConInfo::DelInfo(int id)
 	string info;
 
 	ifstream ciFile(_F_CONTACTSINFO);
-	ofstream tmpFile(_F_TMPFILE,ios_base::trunc);
+	ofstream tmpFile(_F_TMPFILE2,ios_base::trunc);
 
 	while (!ciFile.eof())
 	{
 		getline(ciFile,info);
-		if (count != 0)
+		if (count != id)
 		{
 			tmpFile << info << endl;
 		}
@@ -194,7 +193,7 @@ void ConInfo::DelInfo(int id)
 	tmpFile.close();
 
 	ofstream ofs(_F_CONTACTSINFO,ios_base::trunc);
-	ifstream ifs(_F_TMPFILE);
+	ifstream ifs(_F_TMPFILE2);
 
 	while (!ifs.eof())
 	{
@@ -207,7 +206,10 @@ void ConInfo::DelInfo(int id)
 		}
 	}
 
-	DeleteFile(_F_TMPFILE);
+	ofs.close();
+	ifs.close();
+
+	DeleteFile(_F_TMPFILE2);
 }
 
 ConInfo::ConInfo()

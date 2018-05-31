@@ -10,6 +10,7 @@
 
 #define _F_CONTACTSINFO "./ConInfo.txt"
 #define _F_TMPFILE "./tmpFile.txt"
+#define _F_TMPFILE2 "./tmpFile2.txt"
 
 using namespace std;
 
