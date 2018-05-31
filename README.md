@@ -11,3 +11,9 @@ __git pull origin master --allow-unrelated-histories__
 ### 演示视频
 
 [传送门](https://github.com/kaitiandeng/ContactTest/blob/master/20180531_191021.mp4)
+
+### 动态图 
+
+*不是很清晰*
+
+
