@@ -16,6 +16,7 @@ __git pull origin master --allow-unrelated-histories__
 + 编辑联系人信息
 + 删除联系人 
 + 搜索联系人
++ 本地持久化存储
 
 
 ### 待修改的部分
