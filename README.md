@@ -1,4 +1,4 @@
-# ContactTest
+# ContactTest 简单通讯录
 
 >解决 VS2017 不能推送到GitHub.  
 rejected Updates were rejected because the remote contains work that you do not have locally. This is usually caused by another repository pushing to the same ref. You may want to first integrate the remote changes before pushing again.
