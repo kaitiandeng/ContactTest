@@ -11,7 +11,7 @@ __git pull origin master --allow-unrelated-histories__
 
 
 ### 主要功能
-
+test
 + 添加联系人
 + 编辑联系人信息
 + 删除联系人 
