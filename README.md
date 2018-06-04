@@ -6,7 +6,7 @@ rejected Updates were rejected because the remote contains work that you do not 
 __git pull origin master --allow-unrelated-histories__
 
 ### 演示视频
----------------------------------------------------------------------------------
+------------------
 [传送门](https://github.com/kaitiandeng/ContactTest/blob/master/20180531_191021.mp4)
 
 
